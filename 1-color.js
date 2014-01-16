@@ -3,7 +3,7 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'sphero', adaptor: 'sphero', port: '/dev/cu.Sphero-RYP-RN-SPP' },
+  connection: { name: 'sphero', adaptor: 'sphero', port: '/dev/cu.Sphero-OWR-AMP-SPP' },
   device: { name: 'sphero', driver: 'sphero' },
 
   work: function(my) {
@@ -42,7 +42,7 @@ Cylon.robot({
         var direction = (angleOffset + 450 + Math.floor(angle / Math.PI)) % 360;
         console.log([t, angle, direction])
 
-        my.sphero.roll(60, direction);
+        my.sphero.roll(120, direction);
         t = t + incrementT;
       }
     });
