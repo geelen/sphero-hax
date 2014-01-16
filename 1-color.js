@@ -6,9 +6,11 @@ Cylon.robot({
 
   work: function(my) {
     var on = false,
-      t = 0;
+      t = 0,
+      period = 6;
     every((0.2).second(), function() {
-      var direction = (270 + Math.floor(70 * Math.cos(1/8 * Math.PI * t++))) % 360;
+      var tRadians = t++ * Math.PI / 2;
+      var direction = (450 + Math.floor(45 * Math.cos(tRadians / period))) % 360;
       console.log([t, direction])
 
       // flash light
@@ -19,7 +21,6 @@ Cylon.robot({
         my.sphero.setColor('green');
         on = true;
       }
-
       my.sphero.roll(60, direction);
     });
   }
